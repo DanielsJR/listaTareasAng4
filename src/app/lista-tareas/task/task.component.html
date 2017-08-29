@@ -3,15 +3,13 @@
   <div class="container">
     <h3>
       {{ queuedTareas | i18nPlural: queueHeaderMapping }} para hoy
-      <span class="small" *ngIf="queuedTareas > 0">(Tiempo estimado:
-        {{ queuedTareas * 25 | formateoHoraTareas }})</span>
+      <span class="small" *ngIf="queuedTareas > 0">
+        (Tiempo estimado: {{ queuedTareas * 25 | formateoHoraTareas }})
+      </span>
     </h3>
     <p>
       <span *ngFor="let queuedTask of tasks | tareaQueuedOnly: true ">
-        <tarea-task-icons
-          [task]="queuedTask"
-          [taskTooltip]="tooltip"
-          size="50">
+        <tarea-task-icons [task]="queuedTask" [taskTooltip]="tooltip" size="50">
         </tarea-task-icons>
       </span>
     </p>
@@ -30,40 +28,43 @@
       </thead>
       <tbody>
         <tr *ngFor="let task of tasks; let i = index">
+         
           <th scope="row">{{i}}
             <span *ngIf="task.queued" class="label label-info">
               En Cola
             </span>
           </th>
+
           <td>{{task.name | slice: 0:35 }}
             <span [hidden]="task.name.length < 35">...</span>
           </td>
+
           <td>{{task.deadline | date: 'fullDate' }}
             <span *ngIf="task.deadline < today" class="label label-danger">
               Atrasado
             </span>
           </td>
-          <td class="text-center">{{task.tareasRequeridas}}</td>
+
+          <td class="text-center">{{task.tareasRequeridas}}
+          </td>
+
           <td>
             <button type="button" class="btn btn-default btn-xs" (click)="toggleTask(task)" [ngSwitch]="task.queued">
-             
               <ng-template [ngSwitchCase]="false">
                 <i class="glyphicon glyphicon-plus-sign"></i>
                 Añadir
               </ng-template>
-
               <ng-template [ngSwitchCase]="true">
                 <i class="glyphicon glyphicon-minus-sign"></i>
                 Quitar
               </ng-template>
-
               <ng-template ngSwitchDefault>
                 <i class="glyphicon glyphicon-plus-sign"></i>
                 Add
               </ng-template>
-
             </button>
           </td>
+
         </tr>
       </tbody>
     </table>

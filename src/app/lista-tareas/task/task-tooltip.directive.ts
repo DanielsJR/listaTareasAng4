@@ -1,5 +1,4 @@
 import { Task } from '../task-model/task-model';
-
 import { Directive, HostListener, Input } from '@angular/core';
 
 /// Custom Directives
@@ -7,9 +6,14 @@ import { Directive, HostListener, Input } from '@angular/core';
   selector: '[task]'
 })
 export class TaskTooltipDirective {
+
   private defaultTooltipText: string;
-  @Input() task: Task;
-  @Input() taskTooltip: any;
+
+  @Input()
+  task: Task;
+
+  @Input()
+  taskTooltip: any;
 
   @HostListener('mouseover')
   onMouseOver() {
@@ -18,6 +22,7 @@ export class TaskTooltipDirective {
     }
     this.taskTooltip.innerText = this.task.name;
   }
+
   @HostListener('mouseout')
   onMouseOut() {
     if (this.taskTooltip) {

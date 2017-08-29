@@ -6,12 +6,17 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'tarea-task-icons',
   template: `<img *ngFor="let icon of icons"
-                  src="/assets/img/reloj2.png"
+                  src="/assets/img/reloj.png"
                   width="{{size}}">`
 })
 export class TaskIconsComponent implements OnInit {
-  @Input() task: Task;
-  @Input() size: number;
+
+  @Input()
+  task: Task;
+
+  @Input()
+  size: number;
+
   icons: Object[] = [];
 
   ngOnInit() {

@@ -3,7 +3,6 @@ import { TaskIconsComponent } from '../task-icons/task-icons.component';
 import { TaskTooltipDirective } from './task-tooltip.directive';
 import { QueuedOnlyPipe } from './queued-only.pipe';
 import { FormattedTimePipe } from './formatted-time.pipe';
-
 import { Component, Directive } from '@angular/core';
 import { TaskService } from '../task-service/task-service';
 
@@ -13,7 +12,6 @@ import { TaskService } from '../task-service/task-service';
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css'],
-
 })
 
 export class TaskComponent {
