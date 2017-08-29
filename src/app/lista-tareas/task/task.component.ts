@@ -1,11 +1,6 @@
-import { Task } from '../task-model/task-model';
-import { TaskIconsComponent } from '../task-icons/task-icons.component';
-import { TaskTooltipDirective } from './task-tooltip.directive';
-import { QueuedOnlyPipe } from './queued-only.pipe';
-import { FormattedTimePipe } from './formatted-time.pipe';
+import { TaskService } from './task-service/task-service';
+import { Task } from './task-model/task-model';
 import { Component, Directive } from '@angular/core';
-import { TaskService } from '../task-service/task-service';
-
 
 /// - Main Parent Component
 @Component({

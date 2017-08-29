@@ -1,5 +1,4 @@
-import { Task } from '../task-model/task-model';
-
+import { Task } from '../task/task-model/task-model';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({

@@ -1,12 +1,22 @@
-<div class="container text-center">
-  <img src="assets/img/reloj2.png" alt="Reloj"/>
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container">
+    <div class="navbar-header">
+      <strong class="navbar-brand">Lista de Tareas</strong>
+    </div>
+  </div>
+</nav>
+
+<div class="container text-center">
+  <img src="assets/img/reloj.png" alt="Reloj"/>
+  <div class="container">
+    
     <h3>
       {{ queuedTareas | i18nPlural: queueHeaderMapping }} para hoy
       <span class="small" *ngIf="queuedTareas > 0">
         (Tiempo estimado: {{ queuedTareas * 25 | formateoHoraTareas }})
       </span>
     </h3>
+
     <p>
       <span *ngFor="let queuedTask of tasks | tareaQueuedOnly: true ">
         <tarea-task-icons [task]="queuedTask" [taskTooltip]="tooltip" size="50">
